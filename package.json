@@ -1,0 +1,43 @@
+{
+  "name": "dependency-checker",
+  "version": "0.1.0",
+  "description": "A simple CLI script to check dependencies from a package.json",
+  "preferGlobal": true,
+  "main": "src/index.js",
+  "engines": {
+    "node" : ">=7.10.0"
+  },
+  "dependencies": {
+    "asyncro": "^2.0.1",
+    "chalk": "^2.1.0",
+    "commander": "^2.11.0",
+    "semver": "^5.4.1",
+    "npm": "^5.4.2"
+  },
+  "devDependencies": {
+    "standard": "^10.0.3"
+  },
+  "scripts": {
+    "test": "standard src/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HugoGiraudel/dependency-checker.git"
+  },
+  "keywords": [
+    "npm",
+    "deps",
+    "dependency",
+    "dependencies",
+    "check",
+    "checker",
+    "update",
+    "updates"
+  ],
+  "author": "Hugo Giraudel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HugoGiraudel/dependency-checker/issues"
+  },
+  "homepage": "https://github.com/HugoGiraudel/dependency-checker#readme"
+}
