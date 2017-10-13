@@ -25,7 +25,7 @@ Options:
 ## Example
 
 ```
-$ dependency-checker ./package.json
+$ dependency-checker -p ./package.json
 
 Unsafe updates
 ==============
