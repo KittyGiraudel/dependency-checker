@@ -30,12 +30,19 @@ $ dependency-checker -p ./package.json
 Unsafe updates
 ==============
 Major version bumps or any version bumps prior to the first major release (0.y.z).
+
 * express-graphql is currently in ^0.6.6 but 0.6.11 is available.
-* fela is currently in ^5.1.1 but 6.0.2 is available.
+* babel-preset-react-app is currently in ^3.0.2 but 3.0.3 is available.
+
+npm install --save express-graphql
+npm install --save-dev babel-preset-react-app
 
 Safe updates
 ============
 Minor and patch versions bumps.
+
 * body-parser is currently in ^1.17.2 but 1.18.2 is available.
 * contentful is currently in ^4.5.0 but 4.6.2 is available.
+
+npm install --save body-parser contentful
 ```

@@ -1,11 +1,11 @@
 const semver = require('semver')
 const getLatestVersion = require('./getLatestVersion')
 
-const evaluate = (dependencies, includePreReleases) => async (acc = [], name) => {
-  const range = dependencies[name]
+const evaluate = includePreReleases => async dependency => {
+  const { name, range, type } = dependency
 
   if (!semver.validRange(range)) {
-    return acc
+    return null
   }
 
   const {
@@ -14,17 +14,16 @@ const evaluate = (dependencies, includePreReleases) => async (acc = [], name) =>
   } = await getLatestVersion(name, range, includePreReleases)
 
   if (range.includes(latest)) {
-    return acc
+    return null
   }
 
-  acc.push({
+  return {
     latest,
     range,
     name,
+    type,
     safe
-  })
-
-  return acc
+  }
 }
 
 module.exports = evaluate

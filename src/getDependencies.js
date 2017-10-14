@@ -2,15 +2,31 @@ const path = require('path')
 
 const getDependencies = program => {
   const pkg = require(path.resolve(program.package))
-  const dependencies = Object.assign({}, pkg.dependencies)
+  const dependencies = []
 
-  if (program.dev) {
-    Object.assign(dependencies, pkg.devDependencies)
-  }
+  Object.keys(pkg.dependencies).forEach(packageName => {
+    dependencies.push({
+      name: packageName,
+      range: pkg.dependencies[packageName],
+      type: 'REGULAR'
+    })
+  })
 
-  if (program.peer) {
-    Object.assign(dependencies, pkg.peerDependencies)
-  }
+  program.dev && Object.keys(pkg.devDependencies).forEach(packageName => {
+    dependencies.push({
+      name: packageName,
+      range: pkg.devDependencies[packageName],
+      type: 'DEV'
+    })
+  })
+
+  program.peer && Object.keys(pkg.peerDependencies).forEach(packageName => {
+    dependencies.push({
+      name: packageName,
+      range: pkg.peerDependencies[packageName],
+      type: 'PEER'
+    })
+  })
 
   return dependencies
 }
