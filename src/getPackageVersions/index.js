@@ -1,4 +1,7 @@
+const semver = require('semver')
 const npm = require('npm')
+
+const isNotPR = version => semver.prerelease(version) === null
 
 const loadPackage = name => {
   return new Promise((resolve, reject) => {
@@ -18,9 +21,10 @@ const getVersions = packageName => {
   })
 }
 
-const getPackageVersions = packageName => {
+const getPackageVersions = (packageName, includePR) => {
   return loadPackage(packageName)
     .then(() => getVersions(packageName))
+    .then(versions => includePR ? versions : versions.filter(isNotPR))
 }
 
 module.exports = getPackageVersions

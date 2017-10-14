@@ -1,5 +1,5 @@
 const semver = require('semver')
-const getLatestVersion = require('./getLatestVersion')
+const getLatestVersion = require('../getLatestVersion')
 
 const evaluate = includePR => async dependency => {
   const { name, range, type } = dependency
