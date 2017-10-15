@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "A simple CLI script to check dependencies from a package.json",
   "preferGlobal": true,
+  "license": "MIT",
   "main": "src/index.js",
   "bin": "bin/index.js",
   "engines": {
