@@ -47,7 +47,7 @@ Unsafe updates
 Major version bumps or any version bumps prior to the first major release (0.y.z).
 
 * express-graphql is currently in ^0.6.6 but 0.6.11 is available.
-* babel-preset-react-app is currently in ^3.0.2 but 3.0.3 is available.
+* babel-preset-react-app is currently in ^2.0.2 but 3.0.3 is available.
 
 npm install --save express-graphql
 npm install --save-dev babel-preset-react-app
