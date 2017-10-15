@@ -36,11 +36,11 @@ const display = entries => {
     'prior to the first major release (0.y.z).'
   ))
   console.log('')
-  safe.forEach(logLine)
+  unsafe.forEach(logLine)
   console.log('')
-  logCommand(safe.filter(isRegular), 'REGULAR')
-  logCommand(safe.filter(isDev), 'DEV')
-  logCommand(safe.filter(isPeer), 'PEER')
+  logCommand(unsafe.filter(isRegular), 'REGULAR')
+  logCommand(unsafe.filter(isDev), 'DEV')
+  logCommand(unsafe.filter(isPeer), 'PEER')
   console.log('')
   console.log('')
 
@@ -48,11 +48,11 @@ const display = entries => {
   console.log('============')
   console.log(chalk.gray('Minor and patch versions bumps.'))
   console.log('')
-  unsafe.forEach(logLine)
+  safe.forEach(logLine)
   console.log('')
-  logCommand(unsafe.filter(isRegular), 'REGULAR')
-  logCommand(unsafe.filter(isDev), 'DEV')
-  logCommand(unsafe.filter(isPeer), 'PEER')
+  logCommand(safe.filter(isRegular), 'REGULAR')
+  logCommand(safe.filter(isDev), 'DEV')
+  logCommand(safe.filter(isPeer), 'PEER')
   console.log('')
 }
 
