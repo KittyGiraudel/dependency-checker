@@ -6,6 +6,12 @@ const isDev = d => d.type === 'DEV'
 const isPeer = d => d.type === 'PEER'
 const isRegular = d => d.type === 'REGULAR'
 
+const TYPE_TO_MODE = {
+  'DEV': '--save-dev',
+  'PEER': '--save-peer',
+  'REGULAR': '--save'
+}
+
 const logLine = entry => {
   console.log(`* ${chalk.magenta(entry.name)} is currently in ${chalk.yellow(entry.range)} but ${chalk.blue(entry.latest)} is available.`)
 }
@@ -15,12 +21,9 @@ const logCommand = (entries, type) => {
     return
   }
 
-  const mode = type === 'DEV'
-    ? '--save-dev'
-    : type === 'PEER' ? '--save-peer' : '--save'
   const command = entries.reduce((cmd, entry) => {
     return cmd + ' ' + entry.name
-  }, `npm install ${mode}`)
+  }, `npm install ${TYPE_TO_MODE[type]}`)
 
   console.log(chalk.grey(command))
 }
