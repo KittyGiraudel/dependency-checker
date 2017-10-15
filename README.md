@@ -15,11 +15,12 @@ Usage: dependency-checker [options]
 
 Options:
 
-  -p, --package <package>  Path to package.json
-  -d, --dev                Whether to check devDependencies
-  -p, --peer               Whether to check peerDependencies
-  --no-pr                  Whether to exclude pre-release versions
-  -h, --help               output usage information
+  -p, --package <package>   Path to package.json
+  -d, --dev                 Whether to check devDependencies
+  -p, --peer                Whether to check peerDependencies
+  -r, --reporter [reporter] Reporter to use (cli or json)
+  --no-pr                   Whether to exclude pre-release versions
+  -h, --help                output usage information
 ```
 
 Or through Node.js:
@@ -31,7 +32,8 @@ const deps = await dependencyChecker({
   package: 'path/to/package.json',
   dev: true,
   peer: false,
-  pr: false
+  pr: false,
+  reporter: 'json'
 })
 ```
 
