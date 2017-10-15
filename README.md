@@ -37,7 +37,7 @@ const deps = await dependencyChecker({
 })
 ```
 
-## Example
+## Examples
 
 ```
 $ dependency-checker -p ./package.json
@@ -60,4 +60,43 @@ Minor and patch versions bumps.
 * contentful is currently in ^4.5.0 but 4.6.2 is available.
 
 npm install --save body-parser contentful
+```
+
+---
+
+```
+$ dependency-checker -p ./package.json -r json > dependencies.json
+```
+
+```json
+[
+  {
+    "name": "express-graphql",
+    "range": "^0.6.6",
+    "latest": "0.6.11",
+    "safe": false,
+    "type": "REGULAR"
+  },
+  {
+    "name": "babel-preset-react-app",
+    "range": "^2.0.2",
+    "latest": "3.0.3",
+    "safe": false,
+    "type": "DEV"
+  },
+  {
+    "name": "body-parser",
+    "range": "^1.17.2",
+    "latest": "1.18.2",
+    "safe": true,
+    "type": "REGULAR"
+  },
+  {
+    "name": "contentful",
+    "range": "^4.5.0",
+    "latest": "4.6.2",
+    "safe": true,
+    "type": "REGULAR"
+  }
+]
 ```
