@@ -54,3 +54,13 @@ test('Should include dev dependencies if `dev` option is passed', t => {
 
   t.deepEqual(actual, expected)
 })
+
+test('Should not throw if peer passed but no peerDependencies found', t => {
+  t.notThrows(() => {
+    getDependencies({
+      package: './package.json',
+      dev: false,
+      peer: true
+    })
+  })
+})

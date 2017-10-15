@@ -1,34 +1,38 @@
 const path = require('path')
 
 const getDependencies = program => {
-  const pkg = require(path.resolve(program.package))
-  const dependencies = []
+  const {
+    dependencies = {},
+    devDependencies = {},
+    peerDependencies = {}
+  } = require(path.resolve(program.package))
+  const deps = []
 
-  Object.keys(pkg.dependencies).forEach(packageName => {
-    dependencies.push({
+  Object.keys(dependencies).forEach(packageName => {
+    deps.push({
       name: packageName,
-      range: pkg.dependencies[packageName],
+      range: dependencies[packageName],
       type: 'REGULAR'
     })
   })
 
-  program.dev && Object.keys(pkg.devDependencies).forEach(packageName => {
-    dependencies.push({
+  program.dev && Object.keys(devDependencies).forEach(packageName => {
+    deps.push({
       name: packageName,
-      range: pkg.devDependencies[packageName],
+      range: devDependencies[packageName],
       type: 'DEV'
     })
   })
 
-  program.peer && Object.keys(pkg.peerDependencies).forEach(packageName => {
-    dependencies.push({
+  program.peer && Object.keys(peerDependencies).forEach(packageName => {
+    deps.push({
       name: packageName,
-      range: pkg.peerDependencies[packageName],
+      range: peerDependencies[packageName],
       type: 'PEER'
     })
   })
 
-  return dependencies
+  return deps
 }
 
 module.exports = getDependencies
