@@ -40,7 +40,7 @@ const deps = await dependencyChecker({
 ## Examples
 
 ```
-$ dependency-checker -p ./package.json -d
+$ dependency-checker --package ./package.json --dev
 
 Unsafe updates
 ==============
@@ -65,7 +65,7 @@ npm install --save body-parser contentful
 ---
 
 ```
-$ dependency-checker -p ./package.json -d -r json > dependencies.json
+$ dependency-checker --package ./package.json --dev --reporter json > dependencies.json
 ```
 
 ```json
