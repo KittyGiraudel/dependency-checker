@@ -1,18 +1,22 @@
 const ora = require('ora')
 const { map } = require('asyncro')
-const program = require('./program')
 const display = require('./display')
 const getDependencies = require('./getDependencies')
 const evaluate = require('./evaluate')
-const spinner = ora('Evaluating dependencies…').start()
 
-map(
-  getDependencies(program),
-  evaluate(program.pr)
-)
-  .then(entries => {
+const check = async options => {
+  const spinner = ora('Evaluating dependencies…').start()
+  try {
+    const entries = await map(
+      getDependencies(options),
+      evaluate(options.pr)
+    )
     spinner.stop()
+    display(entries.filter(Boolean))
+  } catch (error) {
+    spinner.stop()
+    console.error(error)
+  }
+}
 
-    return display(entries.filter(Boolean))
-  })
-  .catch(console.error.bind(console))
+module.exports = check

@@ -22,6 +22,19 @@ Options:
   -h, --help               output usage information
 ```
 
+Or through Node.js:
+
+```js
+const dependendyChecker = require('dependency-checker')
+
+const deps = await dependencyChecker({
+  package: 'path/to/package.json',
+  dev: true,
+  peer: false,
+  pr: false
+})
+```
+
 ## Example
 
 ```

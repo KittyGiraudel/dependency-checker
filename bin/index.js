@@ -1,4 +1,6 @@
+#!/usr/bin/env node
 const program = require('commander')
+const dependencyChecker = require('../src')
 
 program
   .option('-p, --package <package>', 'Path to package.json')
@@ -11,4 +13,4 @@ if (!program.package) {
   throw new Error('Missing `--package` (`-p`) argument.')
 }
 
-module.exports = program
+dependencyChecker(program)
