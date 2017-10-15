@@ -21,8 +21,10 @@ const check = async options => {
   }
 
   if (options.reporter === 'json') {
-    return entries
+    console.log(JSON.stringify(entries))
   }
+
+  return entries
 }
 
 module.exports = check
