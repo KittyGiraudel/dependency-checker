@@ -32,31 +32,35 @@ const display = entries => {
   const safe = entries.filter(isSafe)
   const unsafe = entries.filter(isUnsafe)
 
-  console.log('Unsafe updates')
-  console.log('==============')
-  console.log(chalk.gray(
-    'Major version bumps or any version bumps ' +
-    'prior to the first major release (0.y.z).'
-  ))
-  console.log('')
-  unsafe.forEach(logLine)
-  console.log('')
-  logCommand(unsafe.filter(isRegular), 'REGULAR')
-  logCommand(unsafe.filter(isDev), 'DEV')
-  logCommand(unsafe.filter(isPeer), 'PEER')
-  console.log('')
-  console.log('')
+  if (unsafe.length) {
+    console.log('Unsafe updates')
+    console.log('==============')
+    console.log(chalk.gray(
+      'Major version bumps or any version bumps ' +
+      'prior to the first major release (0.y.z).'
+    ))
+    console.log('')
+    unsafe.forEach(logLine)
+    console.log('')
+    logCommand(unsafe.filter(isRegular), 'REGULAR')
+    logCommand(unsafe.filter(isDev), 'DEV')
+    logCommand(unsafe.filter(isPeer), 'PEER')
+    console.log('')
+    console.log('')
+  }
 
-  console.log('Safe updates')
-  console.log('============')
-  console.log(chalk.gray('Minor and patch versions bumps.'))
-  console.log('')
-  safe.forEach(logLine)
-  console.log('')
-  logCommand(safe.filter(isRegular), 'REGULAR')
-  logCommand(safe.filter(isDev), 'DEV')
-  logCommand(safe.filter(isPeer), 'PEER')
-  console.log('')
+  if (safe.length) {
+    console.log('Safe updates')
+    console.log('============')
+    console.log(chalk.gray('Minor and patch versions bumps.'))
+    console.log('')
+    safe.forEach(logLine)
+    console.log('')
+    logCommand(safe.filter(isRegular), 'REGULAR')
+    logCommand(safe.filter(isDev), 'DEV')
+    logCommand(safe.filter(isPeer), 'PEER')
+    console.log('')
+  }
 }
 
 module.exports = display
