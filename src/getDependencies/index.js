@@ -1,5 +1,15 @@
 const path = require('path')
 
+/**
+ * Get the dependencies from `package.json`, including `devDependencies` if
+ * `dev` option is specified and `peerDependencies` if `peer` option is
+ * specified, then format them for the rest of program.
+ * @param {Object} program - Program’s options
+ * @param {String} program.package - Path to `package.json`
+ * @param {Boolean} program.dev - Whether to include dev dependencies
+ * @param {Boolean} program.peer - Whether to include peer dependencies
+ * @return {Object[]} Collection of dependencies to check
+ */
 const getDependencies = program => {
   const {
     dependencies = {},

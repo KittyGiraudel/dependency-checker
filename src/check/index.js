@@ -4,6 +4,15 @@ const display = require('../display')
 const getDependencies = require('../getDependencies')
 const evaluate = require('../evaluate')
 
+/**
+ * Main function: get dependencies from given JSON file, check if whether they
+ * are outdated and report the results.
+ * @param {Object} options - Program’s options
+ * @param {String} options.package - Path to `package.json`
+ * @param {String} options.reporter - `cli` or `json`
+ * @param {Boolean} options.pr - Whether to include pre-releases
+ * @returns {Object[]} Collection of dependencies to update
+ */
 const check = async options => {
   let spinner
 

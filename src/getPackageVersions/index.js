@@ -21,6 +21,13 @@ const getVersions = packageName => {
   })
 }
 
+/**
+ * Get all the versions of a given package, with or without pre-releases
+ * depending on `includePR` parameter.
+ * @param {String} packageName - Name of package to check
+ * @param {Boolean} includePR - Whether to include pre-releases
+ * @return {String[]} - List of package’s versions
+ */
 const getPackageVersions = (packageName, includePR) => {
   return loadPackage(packageName)
     .then(() => getVersions(packageName))

@@ -1,6 +1,14 @@
 const semver = require('semver')
 const getPackageVersions = require('../getPackageVersions')
 
+/**
+ * Get the latest version of a package and whether it is safe to update based on
+ * the given range.
+ * @param {String} packageName - Name of the package
+ * @param {String} packageRange - Range as specified in `package.json`
+ * @param {Boolean} includePR - Whether to include pre-releases
+ * @return {Object} - Latest version of a package and whether safe to update
+ */
 const getLatestVersion = async (packageName, packageRange, inclurePR) => {
   // Get all versions for the `packageName` page, with or without pre-releases
   // depending on the value of `includePR`.
