@@ -39,7 +39,6 @@
     "updates"
   ],
   "author": "Hugo Giraudel",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/HugoGiraudel/dependency-checker/issues"
   },
