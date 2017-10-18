@@ -79,6 +79,11 @@ const display = entries => {
     logCommand(safe.filter(isPeer), 'PEER')
     console.log('')
   }
+
+  if (safe.length || unsafe.length) {
+    console.log(chalk.green('Report bugs or contribute at:'))
+    console.log(chalk.green('https://github.com/HugoGiraudel/dependency-checker'))
+  }
 }
 
 module.exports = display
