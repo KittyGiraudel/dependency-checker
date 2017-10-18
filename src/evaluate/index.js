@@ -1,7 +1,6 @@
 const semver = require('semver')
 const getLatestVersion = require('../getLatestVersion')
-
-const getVersionFromRange = range => range.replace(/[~\^]/g, '')
+const { getVersionFromRange, isPreRelease } = require('../utils')
 
 const evaluate = includePR =>
   /**
@@ -17,8 +16,7 @@ const evaluate = includePR =>
     const { name, range } = dependency
     // If the current specified range is a pre-release one, the check should
     // include pre-releases.
-    const isRangePR = semver.prerelease(getVersionFromRange(range)) !== null
-    const shouldIncludePR = isRangePR || includePR
+    const shouldIncludePR = isPreRelease(getVersionFromRange(range)) || includePR
 
     // If the dependency has an invalid range (e.g. Gist ID, GitHub repository…),
     // skip as there is nothing to check.

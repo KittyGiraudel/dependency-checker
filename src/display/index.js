@@ -1,10 +1,11 @@
 const chalk = require('chalk')
-
-const isSafe = d => d.safe
-const isUnsafe = d => !d.safe
-const isDev = d => d.type === 'DEV'
-const isPeer = d => d.type === 'PEER'
-const isRegular = d => d.type === 'REGULAR'
+const {
+  isSafe,
+  isUnsafe,
+  isDev,
+  isPeer,
+  isRegular
+} = require('../utils')
 
 const TYPE_TO_MODE = {
   'DEV': '--save-dev',
