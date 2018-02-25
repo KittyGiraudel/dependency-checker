@@ -35,7 +35,7 @@ const logCommand = (entries, type) => {
   }
 
   const command = entries.reduce((cmd, entry) => {
-    return cmd + ' ' + entry.name
+    return cmd + ' ' + entry.name + '@' + entry.latest
   }, `npm install ${TYPE_TO_MODE[type]}`)
 
   console.log(chalk.grey(command))
