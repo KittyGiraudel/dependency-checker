@@ -9,10 +9,10 @@ const getPackageVersions = require('../getPackageVersions')
  * @param {Boolean} includePR - Whether to include pre-releases
  * @return {Object} - Latest version of a package and whether safe to update
  */
-const getLatestVersion = async (packageName, packageRange, inclurePR) => {
+const getLatestVersion = async (packageName, packageRange, includePR) => {
   // Get all versions for the `packageName` page, with or without pre-releases
   // depending on the value of `includePR`.
-  const packageVersions = await getPackageVersions(packageName, inclurePR)
+  const packageVersions = await getPackageVersions(packageName, includePR)
   // Get the latest version (very last item in the array).
   const latest = packageVersions[packageVersions.length - 1]
   // Get the last version that satisfies the specified range in package.json.
@@ -20,7 +20,8 @@ const getLatestVersion = async (packageName, packageRange, inclurePR) => {
   // Check if the latest version has a different major number than the last
   // satisfying one; if it has, it’s an unsafe dependency bump as it could
   // involve breaking changes.
-  const hasMajorBump = !lastSatisfying || semver.major(latest) !== semver.major(lastSatisfying)
+  const hasMajorBump =
+    !lastSatisfying || semver.major(latest) !== semver.major(lastSatisfying)
   // If the major version is at `0`, it can also involve breaking changes as
   // anything happening before 1.0.0 is unstable, therefore should be considered
   // unsafe.
