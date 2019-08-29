@@ -16,9 +16,9 @@ const TYPE_TO_MODE = {
  */
 const logLine = entry => {
   console.log(
-    `* ${chalk.magenta(entry.name)} is currently in ${chalk.yellow(
-      entry.range
-    )} but ${chalk.blue(entry.latest)} is available.`
+    `* ${chalk.cyan(entry.name)}${chalk.dim(' @ ')}${chalk.blue(
+      entry.latest
+    )} is available (currently ${chalk.yellow(entry.range)})`
   )
 }
 
