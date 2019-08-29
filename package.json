@@ -13,7 +13,7 @@
     "asyncro": "^2.0.1",
     "chalk": "^2.1.0",
     "commander": "^2.11.0",
-    "npm": "^5.5.1",
+    "pacote": "^9.5.8",
     "semver": "^5.4.1"
   },
   "devDependencies": {
