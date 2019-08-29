@@ -35,7 +35,7 @@ test('Should return unsafe if there is a major bump', async t => {
   const actual = await getLatestVersion('sassdoc', '^1.1.0')
   const expected = {
     safe: false,
-    latest: '2.3.0'
+    latest: '2.7.0'
   }
 
   t.deepEqual(actual, expected)
