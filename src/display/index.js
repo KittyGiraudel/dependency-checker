@@ -1,16 +1,10 @@
 const chalk = require('chalk')
-const {
-  isSafe,
-  isUnsafe,
-  isDev,
-  isPeer,
-  isRegular
-} = require('../utils')
+const { isSafe, isUnsafe, isDev, isPeer, isRegular } = require('../utils')
 
 const TYPE_TO_MODE = {
-  'DEV': '--save-dev',
-  'PEER': '--save-peer',
-  'REGULAR': '--save'
+  DEV: '--save-dev',
+  PEER: '--save-peer',
+  REGULAR: '--save'
 }
 
 /**
@@ -21,7 +15,11 @@ const TYPE_TO_MODE = {
  * @param {String} entry.latest - Latest version of dependency
  */
 const logLine = entry => {
-  console.log(`* ${chalk.magenta(entry.name)} is currently in ${chalk.yellow(entry.range)} but ${chalk.blue(entry.latest)} is available.`)
+  console.log(
+    `* ${chalk.magenta(entry.name)} is currently in ${chalk.yellow(
+      entry.range
+    )} but ${chalk.blue(entry.latest)} is available.`
+  )
 }
 
 /**
@@ -53,10 +51,12 @@ const display = entries => {
   if (unsafe.length) {
     console.log('Unsafe updates')
     console.log('==============')
-    console.log(chalk.gray(
-      'Major version bumps or any version bumps ' +
-      'prior to the first major release (0.y.z).'
-    ))
+    console.log(
+      chalk.gray(
+        'Major version bumps or any version bumps ' +
+          'prior to the first major release (0.y.z).'
+      )
+    )
     console.log('')
     unsafe.forEach(logLine)
     console.log('')
@@ -82,7 +82,9 @@ const display = entries => {
 
   if (safe.length || unsafe.length) {
     console.log(chalk.green('Report bugs or contribute at:'))
-    console.log(chalk.green('https://github.com/HugoGiraudel/dependency-checker'))
+    console.log(
+      chalk.green('https://github.com/HugoGiraudel/dependency-checker')
+    )
   }
 }
 
