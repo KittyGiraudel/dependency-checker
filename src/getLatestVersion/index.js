@@ -15,6 +15,10 @@ const getLatestVersion = async (packageName, packageRange, includePR) => {
   const packageVersions = await getPackageVersions(packageName, includePR)
   // Get the latest version (very last item in the array).
   const latest = packageVersions[packageVersions.length - 1]
+  // If a dependency is fully deprecated, there won’t be any version, and
+  // therefore it should be ignored entirely.
+  if (!latest) return {}
+
   // Get the last version that satisfies the specified range in package.json.
   const lastSatisfying = semver.maxSatisfying(packageVersions, packageRange)
   // Check if the latest version has a different major number than the last
