@@ -17,7 +17,7 @@ const TYPE_TO_MODE = {
 const logLine = entry => {
   if (typeof entry.latest === 'undefined') {
     console.log(
-      `* Couldn‘t find versions for ${chalk.red(entry.name)}. Please check manually`
+      `* Couldn‘t find version for ${chalk.red(entry.name)} (check manually)`
     )
   } else {
     console.log(
