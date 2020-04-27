@@ -15,11 +15,17 @@ const TYPE_TO_MODE = {
  * @param {String} entry.latest - Latest version of dependency
  */
 const logLine = entry => {
-  console.log(
-    `* ${chalk.cyan(entry.name)}${chalk.dim(' @ ')}${chalk.blue(
-      entry.latest
-    )} is available (currently ${chalk.yellow(entry.range)})`
-  )
+  if (typeof entry.latest === 'undefined') {
+    console.log(
+      `* Couldn‘t find version for ${chalk.red(entry.name)} (check manually)`
+    )
+  } else {
+    console.log(
+      `* ${chalk.cyan(entry.name)}${chalk.dim(' @ ')}${chalk.blue(
+        entry.latest
+      )} is available (currently ${chalk.yellow(entry.range)})`
+    )
+  }
 }
 
 /**
@@ -32,7 +38,7 @@ const logCommand = (entries, type) => {
     return
   }
 
-  const command = entries.reduce((cmd, entry) => {
+  const command = entries.filter(entry => Boolean(entry.latest)).reduce((cmd, entry) => {
     return cmd + ' ' + entry.name + '@' + entry.latest
   }, `npm install ${TYPE_TO_MODE[type]}`)
 
