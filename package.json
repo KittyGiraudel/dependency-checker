@@ -26,7 +26,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HugoGiraudel/dependency-checker.git"
+    "url": "git+https://github.com/KittyGiraudel/dependency-checker.git"
   },
   "keywords": [
     "npm",
@@ -38,9 +38,9 @@
     "update",
     "updates"
   ],
-  "author": "Hugo Giraudel",
+  "author": "Kitty Giraudel",
   "bugs": {
-    "url": "https://github.com/HugoGiraudel/dependency-checker/issues"
+    "url": "https://github.com/KittyGiraudel/dependency-checker/issues"
   },
-  "homepage": "https://github.com/HugoGiraudel/dependency-checker#readme"
+  "homepage": "https://github.com/KittyGiraudel/dependency-checker#readme"
 }
