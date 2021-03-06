@@ -6,7 +6,7 @@ test('Should return `null` for invalid ranges', async t => {
   const actual = await e({
     name: 'test-dependency',
     type: 'REGULAR',
-    range: 'github:HugoGiraudel/dependency-checker'
+    range: 'github:KittyGiraudel/dependency-checker'
   })
 
   t.deepEqual(actual, null)
