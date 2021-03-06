@@ -5,7 +5,7 @@ A simple CLI script to check dependencies from a `package.json`.
 ## Install
 
 ```
-git clone git@github.com:HugoGiraudel/dependency-checker
+git clone git@github.com:KittyGiraudel/dependency-checker
 ```
 
 ## Usage
