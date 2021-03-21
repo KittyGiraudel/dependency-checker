@@ -12,7 +12,7 @@
   "dependencies": {
     "asyncro": "^3.0.0",
     "chalk": "^2.4.2",
-    "commander": "^3.0.0",
+    "commander": "^7.1.0",
     "ora": "^3.4.0",
     "pacote": "^9.5.8",
     "semver": "^6.3.0"
