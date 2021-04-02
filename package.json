@@ -15,7 +15,7 @@
     "commander": "^3.0.0",
     "ora": "^5.4.0",
     "pacote": "^9.5.8",
-    "semver": "^6.3.0"
+    "semver": "^7.3.5"
   },
   "devDependencies": {
     "ava": "^2.3.0",
