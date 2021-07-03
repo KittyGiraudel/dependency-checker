@@ -18,10 +18,15 @@
     "semver": "^7.3.5"
   },
   "devDependencies": {
-    "ava": "^2.3.0"
+    "ava": "^3.15.0"
   },
   "scripts": {
-    "test": "ava src/**/spec.js"
+    "test": "ava"
+  },
+  "ava": {
+    "files": [
+      "src/**/spec.js"
+    ]
   },
   "repository": {
     "type": "git",
