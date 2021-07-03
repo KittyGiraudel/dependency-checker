@@ -7,7 +7,7 @@ const {
   isUnsafe,
   isDev,
   isPeer,
-  isRegular
+  isRegular,
 } = require('./')
 
 test('getVersionFromRange', t => {

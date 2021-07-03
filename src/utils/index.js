@@ -17,5 +17,5 @@ module.exports = {
   isUnsafe,
   isDev,
   isPeer,
-  isRegular
+  isRegular,
 }

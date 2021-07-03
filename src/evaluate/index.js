@@ -2,7 +2,8 @@ const semver = require('semver')
 const getLatestVersion = require('../getLatestVersion')
 const { getVersionFromRange, isPreRelease } = require('../utils')
 
-const evaluate = includePR =>
+const evaluate =
+  includePR =>
   /**
    * Evaluate a dependency to determine whether it is checkable, up-to-date and
    * safe to update.
@@ -16,7 +17,8 @@ const evaluate = includePR =>
     const { name, range } = dependency
     // If the current specified range is a pre-release one, the check should
     // include pre-releases.
-    const shouldIncludePR = isPreRelease(getVersionFromRange(range)) || includePR
+    const shouldIncludePR =
+      isPreRelease(getVersionFromRange(range)) || includePR
 
     // If the dependency has an invalid range (e.g. Gist ID, GitHub repository…),
     // skip as there is nothing to check.
@@ -26,7 +28,11 @@ const evaluate = includePR =>
 
     // Get the latest version for the dependency as well as whether or not it is
     // a safe bump (patch- or minor-bump post first release).
-    const { latest, safe } = await getLatestVersion(name, range, shouldIncludePR)
+    const { latest, safe } = await getLatestVersion(
+      name,
+      range,
+      shouldIncludePR
+    )
 
     // If the latest version is the one specified in the range, skip because it is
     // up to date. This is not very robust but works pretty well.

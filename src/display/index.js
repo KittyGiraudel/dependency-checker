@@ -4,7 +4,7 @@ const { isSafe, isUnsafe, isDev, isPeer, isRegular } = require('../utils')
 const TYPE_TO_MODE = {
   DEV: '--save-dev',
   PEER: '--save-peer',
-  REGULAR: '--save'
+  REGULAR: '--save',
 }
 
 /**
@@ -38,9 +38,11 @@ const logCommand = (entries, type) => {
     return
   }
 
-  const command = entries.filter(entry => Boolean(entry.latest)).reduce((cmd, entry) => {
-    return cmd + ' ' + entry.name + '@' + entry.latest
-  }, `npm install ${TYPE_TO_MODE[type]}`)
+  const command = entries
+    .filter(entry => Boolean(entry.latest))
+    .reduce((cmd, entry) => {
+      return cmd + ' ' + entry.name + '@' + entry.latest
+    }, `npm install ${TYPE_TO_MODE[type]}`)
 
   console.log(chalk.grey(command))
 }

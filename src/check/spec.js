@@ -7,7 +7,7 @@ test('Should return JSON in `json` reporter', async t => {
     reporter: 'json',
     dev: false,
     peer: false,
-    pr: false
+    pr: false,
   })
 
   t.deepEqual(typeof actual, 'object')

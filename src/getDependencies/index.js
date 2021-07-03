@@ -14,7 +14,7 @@ const getDependencies = program => {
   const {
     dependencies = {},
     devDependencies = {},
-    peerDependencies = {}
+    peerDependencies = {},
   } = require(path.resolve(program.package))
   const deps = []
 
@@ -22,25 +22,27 @@ const getDependencies = program => {
     deps.push({
       name: packageName,
       range: dependencies[packageName],
-      type: 'REGULAR'
+      type: 'REGULAR',
     })
   })
 
-  program.dev && Object.keys(devDependencies).forEach(packageName => {
-    deps.push({
-      name: packageName,
-      range: devDependencies[packageName],
-      type: 'DEV'
+  program.dev &&
+    Object.keys(devDependencies).forEach(packageName => {
+      deps.push({
+        name: packageName,
+        range: devDependencies[packageName],
+        type: 'DEV',
+      })
     })
-  })
 
-  program.peer && Object.keys(peerDependencies).forEach(packageName => {
-    deps.push({
-      name: packageName,
-      range: peerDependencies[packageName],
-      type: 'PEER'
+  program.peer &&
+    Object.keys(peerDependencies).forEach(packageName => {
+      deps.push({
+        name: packageName,
+        range: peerDependencies[packageName],
+        type: 'PEER',
+      })
     })
-  })
 
   return deps
 }
