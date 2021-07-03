@@ -21,7 +21,12 @@
     "ava": "^3.15.0"
   },
   "scripts": {
-    "test": "ava 'src/**/spec.js'"
+    "test": "ava"
+  },
+  "ava": {
+    "files": [
+      "src/**/spec.js"
+    ]
   },
   "repository": {
     "type": "git",
